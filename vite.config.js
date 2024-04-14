@@ -28,18 +28,18 @@ export default defineConfig(({ mode, command, ssrBuild }) => {
       chunkSizeWarningLimit: 1500, // chunk 大小警告的限制（以 kbs 为单位）
     },
     // 反向代理
-    server: {
-      port: 90,
-      open: false, //服务启动时自动在浏览器中打开应用
-      hmr: true, //开启热部署
-      proxy: {
-        [env.VITE_APP_BASE_API]: {
-          target: env.VITE_HOST_URL,
-          changeOrigin: true,
-          rewrite: (path) =>
-            path.replace(RegExp(`^${env.VITE_APP_BASE_API}`), ""),
-        },
-      },
-    },
+    // server: {
+    //   port: 90,
+    //   open: false, //服务启动时自动在浏览器中打开应用
+    //   hmr: true, //开启热部署
+    //   proxy: {
+    //     [env.VITE_APP_BASE_API]: {
+    //       target: env.VITE_HOST_URL,
+    //       changeOrigin: true,
+    //       rewrite: (path) =>
+    //         path.replace(RegExp(`^${env.VITE_APP_BASE_API}`), ""),
+    //     },
+    //   },
+    // },
   };
 });
