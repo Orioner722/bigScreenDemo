@@ -14,6 +14,7 @@ export default defineConfig(({ mode, command, ssrBuild }) => {
         "@": "./src",
       },
     },
+    base: "./",
     build: {
       outDir: "docs", // 指定打包路径 dist 目录
       minify: "terser", // 必须开启：使用terserOptions才有效果
