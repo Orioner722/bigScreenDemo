@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="m-full flex flex-col bg-[url('assets/images/H5.jpg')] bg-repeat-y bg-cover overflow-auto text-white"
-    v-if="data"
-  >
+  <div class="m-full flex flex-col bg-[url('assets/images/H5.jpg')] bg-repeat-y bg-cover overflow-auto text-white"
+    v-if="data">
     <div class="flex-1 flex flex-col w-full p-3">
       <!-- 数据总览图 -->
       <m-total class="bg-opacity-50 bg-slate-800 p-3 mb-3" :data="data.totalData" />
@@ -37,10 +35,15 @@ import WordCloud from "@/components/WordCloud.vue";
 import { ref } from "vue";
 import { getVisualization } from "../../api/visualization";
 import { useRouter } from "vue-router";
-
+import mockData from "../../utils/mockData";
+let _mockData = reactive(mockData);
 const data = ref(null);
-const loadData = async () => {
-  data.value = await getVisualization();
+// const loadData = async () => {
+//   data.value = await getVisualization();
+// };
+const loadData = () => {
+
+  data.value = _mockData;
 };
 loadData();
 
@@ -48,7 +51,7 @@ const $router = useRouter()
 // 获取宽度
 const windowSize = () => {
   let width = document.documentElement.clientWidth;
-  width>=768?$router.push({ path: "/" }):""
+  width >= 768 ? $router.push({ path: "/" }) : ""
 }
 window.addEventListener("resize", windowSize);
 windowSize()
@@ -59,8 +62,8 @@ setInterval(() => {
 </script>
 
 <style scoped>
-.m-full{
-  min-width:375px;
+.m-full {
+  min-width: 375px;
   height: 100vh;
 }
 </style>
