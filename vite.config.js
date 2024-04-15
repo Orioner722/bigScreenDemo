@@ -1,7 +1,3 @@
-/**
- * @Author 怪咖
- * @Date 2023-09-06
- */
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 
